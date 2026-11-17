@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback, useRef } from 'react';
 import { useParams, useSearchParams, Link } from 'react-router-dom';
 import { api, canWrite } from '../api.js';
 import { statusPillClass, formatStatus } from '../status.js';
+import { formatCalendarDate } from '../dateFormatting.js';
 import { onEnter } from '../ui.jsx';
 
 const CHANNELS = ['email', 'phone', 'meeting', 'other'];
@@ -424,7 +425,7 @@ export default function ManufacturerDetail() {
                             {data.reorder_history.map(function (r) {
                                 return (
                                     <tr key={r.id}>
-                                        <td>{new Date(r.ordered_at).toLocaleDateString('en-GB')}</td>
+                                        <td>{formatCalendarDate(r.ordered_at)}</td>
                                         <td>{r.sku} — {r.product_name}</td>
                                         <td className="num">{r.quantity_ordered} units</td>
                                     </tr>
