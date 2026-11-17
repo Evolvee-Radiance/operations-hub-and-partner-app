@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { api } from '../api.js';
 import { statusPillClass, formatStatus } from '../status.js';
+import { formatCalendarDate } from '../dateFormatting.js';
 
 const money = (n) => (n == null ? '—' : `$${Number(n).toFixed(2)}`);
 const stars = (r) => (r ? '★'.repeat(r) + '☆'.repeat(5 - r) : '—');
@@ -147,7 +148,7 @@ export default function ProductDetail() {
                             <tbody>
                                 {data.reorder_history.map((r) => (
                                     <tr key={r.id}>
-                                        <td>{new Date(r.ordered_at).toLocaleDateString('en-GB')}</td>
+                                        <td>{formatCalendarDate(r.ordered_at)}</td>
                                         <td>{r.manufacturer_name || '—'}</td>
                                         <td className="num">{r.quantity_ordered} units</td>
                                     </tr>
