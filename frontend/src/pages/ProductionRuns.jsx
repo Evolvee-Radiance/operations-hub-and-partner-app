@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { api, canWrite } from '../api.js';
 import { statusPillClass, formatStatus } from '../status.js';
+import { formatCalendarDate } from '../dateFormatting.js';
 import { onEnter } from '../ui.jsx';
 
 const STATUSES = ['ordered', 'in_production', 'shipped', 'received', 'cancelled'];
@@ -182,9 +183,7 @@ export default function ProductionRuns() {
                                         <td>{r.sku ? `${r.sku} — ${r.product_name}` : '—'}</td>
                                         <td className="num">{r.quantity ?? '—'}</td>
                                         <td>
-                                            {r.expected_date
-                                                ? new Date(r.expected_date).toLocaleDateString('en-GB')
-                                                : '—'}
+                                            {formatCalendarDate(r.expected_date)}
                                         </td>
                                         <td>
                                             <span className={statusPillClass(r.status)}>

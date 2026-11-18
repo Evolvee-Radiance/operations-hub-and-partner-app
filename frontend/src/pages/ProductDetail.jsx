@@ -182,9 +182,7 @@ export default function ProductDetail() {
                                             </span>
                                         </td>
                                         <td>
-                                            {r.expected_date
-                                                ? new Date(r.expected_date).toLocaleDateString('en-GB')
-                                                : '—'}
+                                            {formatCalendarDate(r.expected_date)}
                                         </td>
                                         <td style={{ color: 'var(--muted)' }}>{r.notes || ''}</td>
                                     </tr>
