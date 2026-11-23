@@ -192,7 +192,11 @@
                 {% for payment in recent_payments %}
                 <li>
                     <span>${{ payment.amount }} — {{ payment.get_status_display }}</span>
-                    <span class="muted">{{ payment.period_start }} to {{ payment.period_end }}</span>
+                    {% if payment.paid_at %}
+                    <span class="muted">Paid {{ payment.paid_at|date:"M j, Y" }}</span>
+                    {% else %}
+                    <span class="muted">Period {{ payment.period_start|date:"M j, Y" }} to {{ payment.period_end|date:"M j, Y" }}</span>
+                    {% endif %}
                 </li>
                 {% endfor %}
             </ul>
