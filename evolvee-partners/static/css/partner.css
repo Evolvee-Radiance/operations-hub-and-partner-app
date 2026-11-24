@@ -1,18 +1,18 @@
 :root {
     /* Evolvée Radiance storefront palette */
     --bg: #ffffff;
-    --page-bg: #ffffff;
+    --page-bg: #fff8f9;
     --surface: #ffffff;
-    --text: #4a4a4a;
+    --text: #333333;
     --muted: #6b6b6b;
-    --accent: #8b5e3c;
-    --accent-dark: #6f4a2e;
-    --accent-light: #a67c52;
+    --accent: #7a1538;
+    --accent-dark: #5c0f2a;
+    --accent-light: #9a2a4e;
     --border: #e8d5d9;
     --success: #2d6a4f;
     --warning: #b08900;
     --pending: #5c6b73;
-    --header-bg: #f9c9d3;
+    --header-bg: #f7c9d3;
     --header-text: #333333;
     --hero-pink: #efb0ba;
     --hero-pink-mid: #e8a4af;
@@ -76,9 +76,8 @@ h3 { font-size: 1.15rem; font-weight: 400; }
 }
 
 .brand-icon {
-    width: 36px;
-    height: 36px;
-    flex-shrink: 0;
+    width: 42px;
+    height: auto;
 }
 
 .brand-name {
