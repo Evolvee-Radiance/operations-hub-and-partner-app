@@ -14,7 +14,14 @@ from partners.analytics.queries import (
     get_program_kpis,
     get_region_breakdown,
 )
-from partners.models import Partner, ProgramActivity
+from partners.models import (
+    Partner,
+    PartnerPayment,
+    PartnerStatus,
+    PaymentStatus,
+    ProgramActivity,
+    ShopifyWebhookEvent,
+)
 from partners.utils.commission import get_partner_chart_data, get_partner_stats
 
 
@@ -22,9 +29,11 @@ from partners.utils.commission import get_partner_chart_data, get_partner_stats
 def command_center(request):
     days = int(request.GET.get("days", 30))
     event_filter = request.GET.get("event", "")
+    kpis = get_program_kpis()
 
     context = {
         "kpis": get_program_kpis(),
+        "kpis" = kpis,
         "chart_data": get_daily_metrics(days=days),
         "leaderboard": get_partner_leaderboard(),
         "region_breakdown": get_region_breakdown(days=days),
@@ -36,6 +45,16 @@ def command_center(request):
         "selected_event": event_filter,
         "brand_name": "Evolvée Radiance",
         "active_admin_nav": "overview",
+                "action_stats": {
+            "pending_partners": Partner.objects.filter(status=PartnerStatus.PENDING).count(),
+            "pending_payments": PartnerPayment.objects.filter(
+                status__in=[PaymentStatus.PENDING, PaymentStatus.PROCESSING]
+            ).count(),
+            "failed_webhooks": ShopifyWebhookEvent.objects.filter(
+                status=ShopifyWebhookEvent.Status.FAILED
+            ).count(),
+            "approved_partners": kpis.get("approved_partners", 0),
+        },
     }
     return render(request, "analytics/command_center.html", context)
 

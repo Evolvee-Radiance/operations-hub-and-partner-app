@@ -1,7 +1,8 @@
 <header class="site-header site-header--admin">
     <div class="container header-inner">
-        <a href="{% url 'analytics:command_center' %}" class="brand">
-            <span class="brand-name">Evolvée Radiance — Admin</span>
+        <a href="{% url 'analytics:command_center' %}" class="brand brand--admin">
+            <img src="/static/img/evolvee-logo.png" alt="Evolvée Radiance" class="brand-logo">
+            <span class="brand-admin-label">Admin</span>
         </a>
         <nav class="site-nav">
             <a href="{% url 'analytics:command_center' %}"{% if active_admin_nav == "overview" %} class="active"{% endif %}>Overview</a>

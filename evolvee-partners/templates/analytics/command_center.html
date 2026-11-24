@@ -9,6 +9,7 @@
 {% block content %}
 <div class="analytics-header">
     <div>
+                <p class="analytics-kicker">Staff overview</p>
         <h1>Partnership Program</h1>
         <p class="muted">Track partner growth, scan activity, conversions, and audience regions.</p>
     </div>
@@ -31,12 +32,55 @@
     </div>
 </div>
 
+<div class="action-strip" aria-label="Quick actions">
+    <a class="action-card {% if action_stats.pending_partners %}action-card--alert{% endif %}" href="/admin/partners/partner/?status__exact=pending">
+        <span class="action-label">Pending applications</span>
+        <span class="action-value">{{ action_stats.pending_partners }}</span>
+        <span class="action-hint">Review and approve</span>
+    </a>
+    <a class="action-card {% if action_stats.pending_payments %}action-card--warn{% endif %}" href="/admin/partners/partnerpayment/?status__exact=pending">
+        <span class="action-label">Payouts to process</span>
+        <span class="action-value">{{ action_stats.pending_payments }}</span>
+        <span class="action-hint">PayPal / bank, then mark Paid</span>
+    </a>
+    <a class="action-card {% if action_stats.failed_webhooks %}action-card--alert{% endif %}" href="/admin/partners/shopifywebhookevent/?status__exact=failed">
+        <span class="action-label">Failed webhooks</span>
+        <span class="action-value">{{ action_stats.failed_webhooks }}</span>
+        <span class="action-hint">{% if action_stats.failed_webhooks %}Check error messages{% else %}All clear{% endif %}</span>
+    </a>
+    <a class="action-card" href="/admin/partners/partner/?status__exact=approved">
+        <span class="action-label">Approved partners</span>
+        <span class="action-value">{{ action_stats.approved_partners }}</span>
+        <span class="action-hint">Open partner list</span>
+    </a>
+</div>
+
 <div class="stats-grid">
-    <div class="stat-card"><span class="stat-label">Approved Partners</span><span class="stat-value">{{ kpis.approved_partners }}</span><span class="stat-sub">{{ kpis.pending_partners }} pending</span></div>
-    <div class="stat-card"><span class="stat-label">QR Scans</span><span class="stat-value">{{ kpis.total_clicks }}</span><span class="stat-sub">{{ kpis.recent_clicks }} last 30d</span></div>
-    <div class="stat-card"><span class="stat-label">Conversions</span><span class="stat-value">{{ kpis.total_conversions }}</span><span class="stat-sub">{{ kpis.conversion_rate }}% rate</span></div>
-    <div class="stat-card"><span class="stat-label">Revenue</span><span class="stat-value">${{ kpis.total_revenue|floatformat:2 }}</span><span class="stat-sub">{{ kpis.total_sales_count }} sales</span></div>
-    <div class="stat-card highlight"><span class="stat-label">Commissions</span><span class="stat-value">${{ kpis.total_commission|floatformat:2 }}</span><span class="stat-sub">${{ kpis.pending_commission|floatformat:2 }} pending</span></div>
+    <a class="stat-card stat-card--link" href="/admin/partners/partner/?status__exact=approved">
+        <span class="stat-label">Approved Partners</span>
+        <span class="stat-value">{{ kpis.approved_partners }}</span>
+        <span class="stat-sub">{{ kpis.pending_partners }} pending</span>
+    </a>
+    <a class="stat-card stat-card--link" href="#programChart">
+        <span class="stat-label">QR Scans</span>
+        <span class="stat-value">{{ kpis.total_clicks }}</span>
+        <span class="stat-sub">{{ kpis.recent_clicks }} last 30d</span>
+    </a>
+    <a class="stat-card stat-card--link" href="#programChart">
+        <span class="stat-label">Conversions</span>
+        <span class="stat-value">{{ kpis.total_conversions }}</span>
+        <span class="stat-sub">{{ kpis.conversion_rate }}% rate</span>
+    </a>
+    <a class="stat-card stat-card--link" href="/admin/partners/partnersale/">
+        <span class="stat-label">Revenue</span>
+        <span class="stat-value">${{ kpis.total_revenue|floatformat:2 }}</span>
+        <span class="stat-sub">{{ kpis.total_sales_count }} sales</span>
+    </a>
+    <a class="stat-card stat-card--link highlight" href="/admin/partners/partnerpayment/">
+        <span class="stat-label">Commissions</span>
+        <span class="stat-value">${{ kpis.total_commission|floatformat:2 }}</span>
+        <span class="stat-sub">${{ kpis.pending_commission|floatformat:2 }} pending</span>
+    </a>
 </div>
 
 <div class="two-col">

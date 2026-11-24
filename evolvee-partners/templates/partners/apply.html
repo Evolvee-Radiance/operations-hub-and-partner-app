@@ -20,19 +20,35 @@
     </div>
     {% endif %}
 
-    <section class="apply-banner" aria-labelledby="apply-heading">
-        <div class="apply-banner-inner">
+    <section class="apply-hero" aria-labelledby="apply-heading">
+        <div class="apply-hero-inner">
+            <img
+                src="/static/img/Evolvee-Radiance-Logo.png"
+                alt="Evolvée Radiance"
+                class="apply-hero-logo"
+            >
+            <figure class="apply-hero-figure">
+                <img
+                    src="/static/img/shaking-hands.jpg"
+                    alt="Partners shaking hands"
+                    class="apply-hero-image"
+                >
+            </figure>
+
             <h1 id="apply-heading">Become A Partner</h1>
-            <div class="apply-banner-copy">
-                <p>Join the Evolvée Radiance Partner Program and earn commission by sharing products you genuinely love. As a partner, you'll help introduce our products to new audiences while growing with a beauty brand built around confidence, self-expression, and elevated everyday beauty.</p>
-                <p>We're looking for creators, beauty lovers, and brand supporters who connect with our vision and want to help bring Evolvée Radiance to more people.</p>
+            
+            <div class="apply-hero-copy">
+                <p>Join the Evolvée Radiance Partner Program and earn commission by sharing products you love.</p>
             </div>
         </div>
     </section>
 
     <div class="apply-form-wrap">
         <div class="container">
-            <section class="auth-card auth-card--apply">
+            <section class="auth-card auth-card--apply" aria-label="Partner application form">
+                <h2 class="apply-form-title">Application</h2>
+                <p class="muted apply-form-lead">Tell us a little about yourself. Approval usually takes 1 to 3 business days.</p>
+
                 <form method="post" class="form apply-form" data-location-form data-location-initial-id="apply-location-initial">
                     {% csrf_token %}
                     {{ location_initial|json_script:"apply-location-initial" }}
@@ -76,7 +92,7 @@
                         <label>Why do you want to partner? (optional)</label>
                         <textarea name="application_notes" rows="3"></textarea>
                     </div>
-                    <p class="muted apply-form-note">After approval, you can add your payout details from your profile.</p>
+                    <p class="muted apply-form-note">After approval, add payout details from your profile. For further questions contact partners@evolveeradiance.com</p>
                     <button type="submit" class="btn-ghost btn-apply-submit">Submit Application</button>
                 </form>
 

@@ -75,6 +75,23 @@ h3 { font-size: 1.15rem; font-weight: 400; }
     color: inherit;
 }
 
+.brand-logo {
+    height: 42px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+}
+.brand--admin {
+    gap: 0.75rem;
+}
+.brand-admin-label {
+    font-family: var(--nav-font);
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
 .brand-icon {
     width: 42px;
     height: auto;
@@ -237,6 +254,87 @@ body.page-apply .site-main {
     padding: 0;
 }
 
+.apply-hero {
+    width: 100%;
+    text-align: center;
+    padding: 2.5rem 1.25rem 3rem;
+    background:
+        radial-gradient(ellipse 90% 70% at 12% 18%, rgba(255, 255, 255, 0.55) 0%, transparent 55%),
+        linear-gradient(175deg, #f7d0d7 0%, var(--hero-pink) 42%, var(--hero-pink-mid) 100%);
+}
+.apply-hero-inner {
+    width: min(760px, 94%);
+    margin: 0 auto;
+}
+.apply-hero-logo {
+    display: block;
+    height: 56px;
+    width: auto;
+    margin: 0 auto 1.5rem;
+    object-fit: contain;
+    background: #111;
+    padding: 0.55rem 1rem;
+    border-radius: 10px;
+}
+.apply-hero-figure {
+    margin: 0 0 1.75rem;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 12px 32px rgba(90, 40, 55, 0.18);
+}
+.apply-hero-image {
+    display: block;
+    width: 100%;
+    height: clamp(180px, 36vw, 320px);
+    object-fit: cover;
+    object-position: center 35%;
+}
+.apply-hero h1 {
+    font-family: var(--heading-font);
+    font-size: clamp(2.15rem, 5.5vw, 3rem);
+    font-weight: 400;
+    color: var(--header-text);
+    margin: 0 0 1rem;
+    letter-spacing: 0.01em;
+    line-height: 1.15;
+}
+.apply-hero-copy {
+    text-align: center;
+    max-width: 560px;
+    margin: 0 auto;
+}
+.apply-hero-copy p {
+    margin: 0 0 0.85rem;
+    color: var(--header-text);
+    font-family: var(--nav-font);
+    font-size: 1.02rem;
+    line-height: 1.7;
+}
+.apply-hero-copy p:last-child {
+    margin-bottom: 0;
+}
+.apply-form-wrap {
+    background: var(--page-bg);
+    padding: 2.5rem 0 4.5rem;
+}
+.auth-card--apply {
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 1.75rem 1.5rem 2rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-soft);
+    border-radius: 16px;
+}
+.apply-form-title {
+    margin: 0 0 0.35rem;
+    text-align: center;
+}
+.apply-form-lead {
+    text-align: center;
+    margin: 0 0 1.5rem;
+}
+
 .apply-banner {
     width: 100%;
     text-align: center;
@@ -283,20 +381,6 @@ body.page-apply .site-main {
     margin-bottom: 0;
 }
 
-.apply-form-wrap {
-    background: var(--page-bg);
-    padding: 3rem 0 4.5rem;
-}
-
-.auth-card--apply {
-    max-width: 520px;
-    margin: 0 auto;
-    padding: 0;
-    background: transparent;
-    border: none;
-    box-shadow: none;
-    border-radius: 0;
-}
 
 .apply-form .form-row label {
     font-size: 0.95rem;
@@ -651,8 +735,15 @@ body.page-apply .site-main {
 }
 
 @media (max-width: 720px) {
-    .apply-banner {
-        padding: 3rem 1rem 3.5rem;
+    .apply-hero {
+        padding: 1.75rem 1rem 2.25rem;
+    }
+    .apply-hero-logo {
+        height: 46px;
+        margin-bottom: 1.1rem;
+    }
+    .apply-hero-image {
+        height: 200px;
     }
 
     .apply-banner h1 {
