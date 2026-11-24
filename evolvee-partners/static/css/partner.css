@@ -1,18 +1,18 @@
 :root {
     /* Evolvée Radiance storefront palette */
     --bg: #ffffff;
-    --page-bg: #fff8f9;
+    --page-bg: #ffffff;
     --surface: #ffffff;
-    --text: #333333;
+    --text: #4a4a4a;
     --muted: #6b6b6b;
-    --accent: #7a1538;
-    --accent-dark: #5c0f2a;
-    --accent-light: #9a2a4e;
+    --accent: #8b5e3c;
+    --accent-dark: #6f4a2e;
+    --accent-light: #a67c52;
     --border: #e8d5d9;
     --success: #2d6a4f;
     --warning: #b08900;
     --pending: #5c6b73;
-    --header-bg: #f7c9d3;
+    --header-bg: #f9c9d3;
     --header-text: #333333;
     --hero-pink: #efb0ba;
     --hero-pink-mid: #e8a4af;
@@ -81,9 +81,11 @@ h3 { font-size: 1.15rem; font-weight: 400; }
     display: block;
     object-fit: contain;
 }
+
 .brand--admin {
     gap: 0.75rem;
 }
+
 .brand-admin-label {
     font-family: var(--nav-font);
     font-size: 0.8rem;
@@ -93,8 +95,9 @@ h3 { font-size: 1.15rem; font-weight: 400; }
 }
 
 .brand-icon {
-    width: 42px;
-    height: auto;
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
 }
 
 .brand-name {
@@ -250,6 +253,15 @@ body.page-apply .site-main {
     padding-top: 0;
 }
 
+/* One logo only: hide the small header logo on apply */
+body.page-apply .site-header .brand {
+    display: none;
+}
+
+body.page-apply .site-header .header-inner {
+    justify-content: flex-end;
+}
+
 .apply-main {
     padding: 0;
 }
@@ -262,10 +274,12 @@ body.page-apply .site-main {
         radial-gradient(ellipse 90% 70% at 12% 18%, rgba(255, 255, 255, 0.55) 0%, transparent 55%),
         linear-gradient(175deg, #f7d0d7 0%, var(--hero-pink) 42%, var(--hero-pink-mid) 100%);
 }
+
 .apply-hero-inner {
     width: min(760px, 94%);
     margin: 0 auto;
 }
+
 .apply-hero-logo {
     display: block;
     height: 56px;
@@ -276,19 +290,23 @@ body.page-apply .site-main {
     padding: 0.55rem 1rem;
     border-radius: 10px;
 }
+
 .apply-hero-figure {
     margin: 0 0 1.75rem;
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 12px 32px rgba(90, 40, 55, 0.18);
 }
+
 .apply-hero-image {
     display: block;
     width: 100%;
-    height: clamp(180px, 36vw, 320px);
+    height: clamp(240px, 48vw, 420px);
     object-fit: cover;
-    object-position: center 35%;
+    /* Handshake sits lower in the portrait shot */
+    object-position: center 72%;
 }
+
 .apply-hero h1 {
     font-family: var(--heading-font);
     font-size: clamp(2.15rem, 5.5vw, 3rem);
@@ -298,11 +316,13 @@ body.page-apply .site-main {
     letter-spacing: 0.01em;
     line-height: 1.15;
 }
+
 .apply-hero-copy {
     text-align: center;
     max-width: 560px;
     margin: 0 auto;
 }
+
 .apply-hero-copy p {
     margin: 0 0 0.85rem;
     color: var(--header-text);
@@ -310,13 +330,16 @@ body.page-apply .site-main {
     font-size: 1.02rem;
     line-height: 1.7;
 }
+
 .apply-hero-copy p:last-child {
     margin-bottom: 0;
 }
+
 .apply-form-wrap {
     background: var(--page-bg);
     padding: 2.5rem 0 4.5rem;
 }
+
 .auth-card--apply {
     max-width: 560px;
     margin: 0 auto;
@@ -326,10 +349,12 @@ body.page-apply .site-main {
     box-shadow: var(--shadow-soft);
     border-radius: 16px;
 }
+
 .apply-form-title {
     margin: 0 0 0.35rem;
     text-align: center;
 }
+
 .apply-form-lead {
     text-align: center;
     margin: 0 0 1.5rem;
@@ -380,7 +405,6 @@ body.page-apply .site-main {
 .apply-banner-copy p:last-child {
     margin-bottom: 0;
 }
-
 
 .apply-form .form-row label {
     font-size: 0.95rem;
@@ -738,12 +762,19 @@ body.page-apply .site-main {
     .apply-hero {
         padding: 1.75rem 1rem 2.25rem;
     }
+
     .apply-hero-logo {
         height: 46px;
         margin-bottom: 1.1rem;
     }
+
     .apply-hero-image {
-        height: 200px;
+        height: 260px;
+        object-position: center 70%;
+    }
+
+    .apply-banner {
+        padding: 3rem 1rem 3.5rem;
     }
 
     .apply-banner h1 {

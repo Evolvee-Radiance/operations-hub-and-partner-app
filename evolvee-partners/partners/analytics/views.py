@@ -32,8 +32,7 @@ def command_center(request):
     kpis = get_program_kpis()
 
     context = {
-        "kpis": get_program_kpis(),
-        "kpis" : kpis,
+        "kpis": kpis,
         "chart_data": get_daily_metrics(days=days),
         "leaderboard": get_partner_leaderboard(),
         "region_breakdown": get_region_breakdown(days=days),
@@ -45,7 +44,7 @@ def command_center(request):
         "selected_event": event_filter,
         "brand_name": "Evolvée Radiance",
         "active_admin_nav": "overview",
-                "action_stats": {
+        "action_stats": {
             "pending_partners": Partner.objects.filter(status=PartnerStatus.PENDING).count(),
             "pending_payments": PartnerPayment.objects.filter(
                 status__in=[PaymentStatus.PENDING, PaymentStatus.PROCESSING]

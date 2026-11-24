@@ -5,7 +5,16 @@
 }
 .site-header--admin .site-nav a { color: #f3f3f3; }
 .site-header--admin .site-nav a.active { color: #ffffff; font-weight: 600; }
-.site-header--admin .brand-admin-label { color: #c9a87c; }
+.site-header--admin .brand-admin-label {
+    color: #c9a87c;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+}
+.site-header--admin .brand-logo--admin {
+    height: 36px;
+    width: auto;
+    display: block;
+}
 .analytics-actions .btn-secondary {
     display: inline-block;
     padding: 0.6rem 1rem;
@@ -84,7 +93,6 @@
     transform: translateY(-2px);
     box-shadow: 0 8px 22px rgba(122, 21, 56, 0.1);
 }
-
 .analytics-actions {
     display: flex;
     gap: 0.75rem;

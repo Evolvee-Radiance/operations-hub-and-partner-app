@@ -9,7 +9,7 @@
 {% block content %}
 <div class="analytics-header">
     <div>
-                <p class="analytics-kicker">Staff overview</p>
+        <p class="analytics-kicker">Staff overview</p>
         <h1>Partnership Program</h1>
         <p class="muted">Track partner growth, scan activity, conversions, and audience regions.</p>
     </div>
@@ -35,22 +35,22 @@
 <div class="action-strip" aria-label="Quick actions">
     <a class="action-card {% if action_stats.pending_partners %}action-card--alert{% endif %}" href="/admin/partners/partner/?status__exact=pending">
         <span class="action-label">Pending applications</span>
-        <span class="action-value">{{ action_stats.pending_partners }}</span>
+        <span class="action-value">{{ action_stats.pending_partners|default:0 }}</span>
         <span class="action-hint">Review and approve</span>
     </a>
     <a class="action-card {% if action_stats.pending_payments %}action-card--warn{% endif %}" href="/admin/partners/partnerpayment/?status__exact=pending">
         <span class="action-label">Payouts to process</span>
-        <span class="action-value">{{ action_stats.pending_payments }}</span>
+        <span class="action-value">{{ action_stats.pending_payments|default:0 }}</span>
         <span class="action-hint">PayPal / bank, then mark Paid</span>
     </a>
     <a class="action-card {% if action_stats.failed_webhooks %}action-card--alert{% endif %}" href="/admin/partners/shopifywebhookevent/?status__exact=failed">
         <span class="action-label">Failed webhooks</span>
-        <span class="action-value">{{ action_stats.failed_webhooks }}</span>
+        <span class="action-value">{{ action_stats.failed_webhooks|default:0 }}</span>
         <span class="action-hint">{% if action_stats.failed_webhooks %}Check error messages{% else %}All clear{% endif %}</span>
     </a>
     <a class="action-card" href="/admin/partners/partner/?status__exact=approved">
         <span class="action-label">Approved partners</span>
-        <span class="action-value">{{ action_stats.approved_partners }}</span>
+        <span class="action-value">{{ action_stats.approved_partners|default:0 }}</span>
         <span class="action-hint">Open partner list</span>
     </a>
 </div>
