@@ -33,7 +33,7 @@ def command_center(request):
 
     context = {
         "kpis": get_program_kpis(),
-        "kpis" = kpis,
+        "kpis" : kpis,
         "chart_data": get_daily_metrics(days=days),
         "leaderboard": get_partner_leaderboard(),
         "region_breakdown": get_region_breakdown(days=days),
