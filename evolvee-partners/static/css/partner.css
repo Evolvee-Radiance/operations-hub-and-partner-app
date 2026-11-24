@@ -253,15 +253,6 @@ body.page-apply .site-main {
     padding-top: 0;
 }
 
-/* One logo only: hide the small header logo on apply */
-body.page-apply .site-header .brand {
-    display: none;
-}
-
-body.page-apply .site-header .header-inner {
-    justify-content: flex-end;
-}
-
 .apply-main {
     padding: 0;
 }
@@ -278,17 +269,6 @@ body.page-apply .site-header .header-inner {
 .apply-hero-inner {
     width: min(760px, 94%);
     margin: 0 auto;
-}
-
-.apply-hero-logo {
-    display: block;
-    height: 56px;
-    width: auto;
-    margin: 0 auto 1.5rem;
-    object-fit: contain;
-    background: #111;
-    padding: 0.55rem 1rem;
-    border-radius: 10px;
 }
 
 .apply-hero-figure {
@@ -761,11 +741,6 @@ body.page-apply .site-header .header-inner {
 @media (max-width: 720px) {
     .apply-hero {
         padding: 1.75rem 1rem 2.25rem;
-    }
-
-    .apply-hero-logo {
-        height: 46px;
-        margin-bottom: 1.1rem;
     }
 
     .apply-hero-image {

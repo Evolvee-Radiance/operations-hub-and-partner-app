@@ -10,10 +10,21 @@
     font-size: 0.78rem;
     letter-spacing: 0.1em;
 }
+/* Logo PNG has a black background — chip keeps it readable on the black admin bar */
+.site-header--admin .brand-logo-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.2rem 0.45rem;
+    border-radius: 8px;
+    background: #1c1c1c;
+    border: 1px solid #3a3a3a;
+}
 .site-header--admin .brand-logo--admin {
-    height: 36px;
+    height: 34px;
     width: auto;
+    max-width: 220px;
     display: block;
+    object-fit: contain;
 }
 .analytics-actions .btn-secondary {
     display: inline-block;
